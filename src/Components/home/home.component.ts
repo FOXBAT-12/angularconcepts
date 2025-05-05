@@ -24,7 +24,7 @@ interface Product {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   products: Product[] = [];
   loading: boolean = false;
   error: string | null = null;
@@ -34,9 +34,9 @@ export class HomeComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    this.loadProducts();
-  }
+  // ngOnInit() {
+  //   this.loadProducts();
+  // }
 
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem('user_token');
@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  onImageError(event: Event): void {
+  onImageError(event: Event): void { 
     const target = event.target as HTMLImageElement;
     target.src = 'assets/images/default-product-image.jpg';
   }

@@ -8,6 +8,7 @@ import { HomeComponent } from '../Components/home/home.component';
 import { AdminComponent } from '../Components/admin/admin.component';
 import { LoginadminComponent } from '../Components/loginadmin/loginadmin.component';
 import { UserRegisterComponent } from '../Components/user-register/user-register.component';
+import { HomeScreenComponent } from '../Components/home-screen/home-screen.component';
 
 export const routes: Routes = [  
     {
@@ -41,5 +42,12 @@ export const routes: Routes = [
     {
         path:'app-loginadmin',
         component:LoginadminComponent
+    },
+    { 
+        path:'app-home-screen',
+        component: HomeScreenComponent
+    },
+    {
+        path:'',redirectTo:'/app-home-screen',pathMatch:'full'
     }
 ];
