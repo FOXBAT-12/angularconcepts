@@ -1,0 +1,16 @@
+<h2 class="text-center">Cart Details</h2>
+<div class="row">
+  <div class="col-md-4" *ngFor="let cartitem of cartlist">
+    <div class="card cart-card">
+      <div class="card-body">
+        <h5 class="card-title">Cart Item ID: {{ cartitem.cartItemID }}</h5>
+        <p class="card-text"><strong>Product ID:</strong> {{ cartitem.productId }}</p>
+        <p class="card-text"><strong>User ID:</strong> {{ cartitem.userId }}</p>
+        <p class="card-text"><strong>Quantity:</strong> {{ cartitem.quantity }}</p>
+        <p class="card-text"><strong>Is Active:</strong> {{ cartitem.isActive }}</p>
+        <p class="card-text"><strong>Created Date:</strong> {{ cartitem.createdAt | date:'short' }}</p>
+        <p class="card-text"><strong>Updated Date:</strong> {{ cartitem.updatedAt | date:'short' }}</p>
+      </div>
+    </div>
+  </div>
+</div>

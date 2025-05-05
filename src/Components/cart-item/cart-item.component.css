@@ -1,0 +1,54 @@
+/* Center the cart container */
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background-color: #f8f9fa; /* Optional: Light background */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Style for the title */
+  .cart-title {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Style for the cart details container */
+  .cart-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Limit the width of the cart details */
+  }
+  
+  /* Style for individual cart items */
+  .cart-item {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  /* Style for text inside cart items */
+  .cart-item p {
+    font-size: 16px;
+    color: #495057;
+    margin: 5px 0;
+  }
+
+  .nav-item app-cart-item {
+    display: inline-block;
+    width: 40px; /* Adjust the size as needed */
+    height: 40px;
+  }

@@ -1,0 +1,33 @@
+<h2>Fruit Selector</h2>
+
+<!-- Toggle Button -->
+<button (click)="toggle()">
+  {{ status ? 'Hide Fruit List' : 'Show Fruit List' }}
+</button>
+
+<!-- Conditional Rendering with *ngIf -->
+<div *ngIf="status; else noFruitsTemplate">
+  <h3>Available Fruits:</h3>
+  <div>
+    <!-- Buttons for each fruit -->
+    <button *ngFor="let fruit of Listoffruits" (click)="changefruit(fruit)">
+      {{ fruit }}
+    </button>
+  </div>
+</div>
+
+<!-- Template for when the fruit list is hidden -->
+<ng-template #noFruitsTemplate>
+  <p>The fruit list is currently hidden. Click "Show Fruit List" to display it.</p>
+</ng-template>
+
+<!-- Display Selected Fruit Details -->
+<div *ngIf="selectedfruit; else noSelectionTemplate">
+  <h3>Fruit Details:</h3>
+  <p>You selected <strong>{{ selectedfruit }}</strong>.</p>
+</div>
+
+<!-- Template for when no fruit is selected -->
+<ng-template #noSelectionTemplate>
+  <p>Please select a fruit to see details.</p>
+</ng-template>
