@@ -48,19 +48,6 @@
           class="form-control"
           placeholder="Enter your phone number">
       </div>
-  
-      <div class="form-group">
-        <label for="paymentDetails">Payment Method</label>
-        <input 
-          type="text" 
-          id="paymentDetails" 
-          name="paymentDetails" 
-          [(ngModel)]="user.paymentDetails" 
-          required 
-          class="form-control"
-          placeholder="Enter your preferred payment method">
-      </div>
-  
       <button 
         type="submit" 
         [disabled]="!registerForm.form.valid">

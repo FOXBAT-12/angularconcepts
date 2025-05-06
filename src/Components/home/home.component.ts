@@ -34,9 +34,9 @@ export class HomeComponent {
     private router: Router
   ) {}
 
-  // ngOnInit() {
-  //   this.loadProducts();
-  // }
+  ngOnInit() {
+    this.loadProducts();
+  }
 
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem('user_token');
@@ -78,11 +78,11 @@ export class HomeComponent {
       });
   }
 
-  onImageError(event: Event): void { 
+  onImageError(event: Event): void {
     const target = event.target as HTMLImageElement;
-    target.src = 'assets/images/default-product-image.jpg';
+    target.src = 'assets/images/default-product-image.jpg'; // Correct path to the fallback image
+    target.onerror = null; // Prevent infinite loop if the fallback image also fails
   }
-
   onAddToCart(productId: number) {
     const token = localStorage.getItem('user_token');
     if (!token) {

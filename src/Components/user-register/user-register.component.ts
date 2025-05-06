@@ -8,7 +8,6 @@ interface UserRegister {
   email: string;
   password: string;
   phone: string;
-  paymentDetails: string;
 }
 
 @Component({
@@ -22,8 +21,7 @@ export class UserRegisterComponent {
     name: '',
     email: '',
     password: '',
-    phone: '',
-    paymentDetails: ''
+    phone: ''
   }; 
   constructor(private http: HttpClient) {}
 
@@ -37,8 +35,7 @@ export class UserRegisterComponent {
             name: '',
             email: '',
             password: '',
-            phone: '',
-            paymentDetails: ''
+            phone: ''
           };
           alert('Registration successful!');
         },
