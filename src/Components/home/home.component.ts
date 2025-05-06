@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
+import { CartService } from 'c:/Angular/angularconcepts/src/Services/cart.service'; // Adjusted the path to match the project structure
 
 interface Product {
   id: number;
@@ -28,10 +30,10 @@ export class HomeComponent {
   products: Product[] = [];
   loading: boolean = false;
   error: string | null = null;
-
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private cartService: CartService // Assuming you have a CartService to handle cart operations
   ) {}
 
   ngOnInit() {
@@ -83,14 +85,32 @@ export class HomeComponent {
     target.src = 'assets/images/default-product-image.jpg'; // Correct path to the fallback image
     target.onerror = null; // Prevent infinite loop if the fallback image also fails
   }
-  onAddToCart(productId: number) {
-    const token = localStorage.getItem('user_token');
-    if (!token) {
-      alert('Please login to add items to cart');
-      this.router.navigate(['/login']);
+  onAddToCart(productId: number): void {
+    const product = this.products.find(p => p.id === productId);
+    if (!product) {
+      alert('Product not found!');
       return;
     }
-    
-    console.log('Product added to cart, ID:', productId);
+  
+    this.cartService.addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      imageUrl: product.imageUrl,
+      quantity: 1,
+      subtotal: product.price
+    });
+  
+    alert(`${product.name} has been added to your cart!`);
+  } 
+  increaseQuantity(product: Product): void {
+    product.quantity = (product.quantity || 1) + 1;
   }
+  
+  decreaseQuantity(product: Product): void {
+    if (product.quantity && product.quantity > 1) {
+      product.quantity -= 1;
+    }
+  } 
+  
 }

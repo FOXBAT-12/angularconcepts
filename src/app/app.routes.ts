@@ -49,5 +49,9 @@ export const routes: Routes = [
     },
     {
         path:'',redirectTo:'/app-home-screen',pathMatch:'full'
+    },
+    {
+        path:'app-cart-item',
+        component: CartItemComponent
     }
 ];
