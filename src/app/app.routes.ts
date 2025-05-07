@@ -5,10 +5,11 @@ import { CartItemAPIComponent } from '../Components/cart-item-api/cart-item-api.
 import { LoginComponent } from '../Components/login/login.component';
 import { StructuraldirectiveComponent } from '../Components/structuraldirective/structuraldirective.component';
 import { HomeComponent } from '../Components/home/home.component';
-import { AdminComponent } from '../Components/admin/admin.component';
 import { LoginadminComponent } from '../Components/loginadmin/loginadmin.component';
 import { UserRegisterComponent } from '../Components/user-register/user-register.component';
 import { HomeScreenComponent } from '../Components/home-screen/home-screen.component';
+import { AdminComponent } from '../Components/admin/admin.component';
+import { ProductManagmentComponent } from '../Components/admin/product-management/product-managment.component';
 
 export const routes: Routes = [  
     {
@@ -53,5 +54,13 @@ export const routes: Routes = [
     {
         path:'app-cart-item',
         component: CartItemComponent
+    },
+    {
+        path:'app-admin',
+        component:AdminComponent
+    },
+    {
+        path:'product-management',
+        component:ProductManagmentComponent
     }
 ];

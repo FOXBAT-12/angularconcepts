@@ -14,6 +14,7 @@ export interface CartItem {
   providedIn: 'root'
 })
 export class CartService {
+  private cartItems: CartItem[] = [];
   private cartSubject = new BehaviorSubject<CartItem[]>([]);
   public cart$ = this.cartSubject.asObservable();
 
@@ -50,6 +51,10 @@ export class CartService {
 
     localStorage.setItem('cart', JSON.stringify(updatedCart));
     this.cartSubject.next(updatedCart);
+  } 
+  updateTotalItems(cartItems: CartItem[]): void {
+    this.cartItems = cartItems;
+    this.cartSubject.next(this.cartItems);
   }
 
   getTotalPrice(): number {
@@ -77,6 +82,9 @@ export class CartService {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   
     console.log(`Product with ID ${productId} has been removed from the cart.`);
+  } 
+  totalItems(): number {
+    return this.cartItems.reduce((total, item) => total + item.quantity, 0);
   }
   
 }
