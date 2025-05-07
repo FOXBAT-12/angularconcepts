@@ -1,0 +1,23 @@
+<div class="order-management-container">
+    <h2>Order Management</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>₹{{ item.subtotal.toLocaleString('en-IN') }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Total Price: ₹{{ totalPrice.toLocaleString('en-IN') }}</p>
+  
+  
+    <button class="confirm-order-btn" (click)="confirmOrder()">Confirm Order</button>
+  </div>

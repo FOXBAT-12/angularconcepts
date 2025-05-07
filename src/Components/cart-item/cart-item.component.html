@@ -25,6 +25,7 @@
   <div class="cart-summary">
     <h2 class="section-title">Billing Summary</h2>
     <p class="total-price">Total Price: ₹{{ totalPrice.toLocaleString('en-IN') }}</p>
+    <button class="place-order-btn" (click)="placeOrder()">Place Order</button>
     <button class="clear-cart-btn" (click)="clearCart()">Clear Cart</button>
   </div>
 </div>

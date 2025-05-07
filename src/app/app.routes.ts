@@ -10,6 +10,7 @@ import { UserRegisterComponent } from '../Components/user-register/user-register
 import { HomeScreenComponent } from '../Components/home-screen/home-screen.component';
 import { AdminComponent } from '../Components/admin/admin.component';
 import { ProductManagmentComponent } from '../Components/admin/product-management/product-managment.component';
+import { OrderManagementComponent } from '../Components/order-management/order-management.component';
 
 export const routes: Routes = [  
     {
@@ -62,5 +63,9 @@ export const routes: Routes = [
     {
         path:'product-management',
         component:ProductManagmentComponent
+    },
+    {
+        path: 'app-order-management',
+        component:OrderManagementComponent
     }
 ];

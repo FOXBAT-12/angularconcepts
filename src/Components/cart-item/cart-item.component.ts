@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, computed } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { CartService, CartItem } from 'c:/Angular/angularconcepts/src/Services/cart.service';
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule , RouterModule]
 })
 export class CartItemComponent implements OnInit {
   cartItems: CartItem[] = [];
@@ -15,7 +16,7 @@ export class CartItemComponent implements OnInit {
   // Signal to track the total number of items in the cart
   totalItems = computed(() => this.cartService.totalItems());
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   clearCart(): void {
     this.cartService.clearCart();
@@ -54,5 +55,10 @@ export class CartItemComponent implements OnInit {
       this.cartItems = cart;
       this.totalPrice = this.cartService.getTotalPrice();
     });
+  } 
+  placeOrder(): void {
+    this.router.navigate(['/app-order-management'], {
+      state: { cartItems: this.cartItems, totalPrice: this.totalPrice }
+    }); 
   }
 }

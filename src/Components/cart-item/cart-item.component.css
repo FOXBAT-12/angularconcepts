@@ -138,4 +138,21 @@
 
 .clear-cart-btn:hover {
   background: #c0392b;
+} 
+
+.place-order-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.place-order-btn:hover {
+  background-color: #218838;
 }
